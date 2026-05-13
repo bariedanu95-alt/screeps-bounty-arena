@@ -1,0 +1,21 @@
+node_modules/
+dist/
+coverage/
+.nyc_output/
+.cache/
+
+.env
+.env.*
+!.env.example
+
+*.log
+*.tsbuildinfo
+
+# Screeps/local deploy state
+.screeps.json
+.screepsrc
+memory*.json
+
+# Agent scratch
+.agent/
+.agent-state/

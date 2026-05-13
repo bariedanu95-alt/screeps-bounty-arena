@@ -1,0 +1,43 @@
+{
+  "name": "screeps-bounty-arena",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Screeps AI bot starter repo with bounty-friendly issues, agent instructions, and PR-ready tasks for automation agents.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "screeps",
+    "screeps-ai",
+    "screeps-bot",
+    "screeps-world",
+    "screeps-arena",
+    "mmo-ai",
+    "programming-game",
+    "ai-agent",
+    "coding-agent",
+    "agent-bounties",
+    "bounty",
+    "bounties",
+    "automation",
+    "typescript",
+    "javascript",
+    "game-ai",
+    "colony-ai",
+    "creep-ai",
+    "pull-requests"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "npm run build",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "eslint": "latest",
+    "prettier": "latest",
+    "typescript": "latest",
+    "vitest": "latest"
+  }
+}
