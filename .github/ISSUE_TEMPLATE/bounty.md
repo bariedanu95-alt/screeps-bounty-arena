@@ -28,9 +28,18 @@ npm run simulate:1k
 Attach one when relevant:
 
 - [ ] short video/GIF of the room behavior or RCL milestone
+- [ ] unlisted YouTube link for longer proof clips
 - [ ] simulation report output
 - [ ] private-server/replay log with seed/config
 - [ ] screenshot plus exact commands
+
+For RCL milestone bounties, include:
+
+- target RCL:
+- tick reached:
+- simulation/private-server seed:
+- spawn/room random seed or config:
+- commit SHA tested:
 
 ## Non-goals / constraints
 
