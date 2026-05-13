@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { buildWorkerBody, ensureBasicHarvesters, ensureBasicUpgraders } from '../src/planning/spawn';
+import { buildWorkerBody, ensureBasicBuilders, ensureBasicHarvesters, ensureBasicUpgraders } from '../src/planning/spawn';
 
 describe('buildWorkerBody', () => {
   it('keeps the minimal 200-energy worker body', () => {
@@ -17,6 +17,24 @@ describe('buildWorkerBody', () => {
   });
 });
 
+function makeSpawn(calls: unknown[], energyAvailable = 200, constructionSites: ConstructionSite[] = []): StructureSpawn {
+  return {
+    id: 'spawn1',
+    name: 'Spawn1',
+    spawning: null,
+    pos: { isNearTo: () => true },
+    room: {
+      energyAvailable,
+      find: (type: number) => (type === FIND_CONSTRUCTION_SITES ? constructionSites : []),
+    },
+    structureType: STRUCTURE_SPAWN,
+    spawnCreep: (...args: unknown[]) => {
+      calls.push(args);
+      return 0;
+    },
+  } as unknown as StructureSpawn;
+}
+
 describe('spawn planning', () => {
   it('spawns a harvester when below target', () => {
     const calls: unknown[] = [];
@@ -26,20 +44,7 @@ describe('spawn planning', () => {
       spawns: {},
     } as GameGlobal;
 
-    const spawn = {
-      id: 'spawn1',
-      name: 'Spawn1',
-      spawning: null,
-      pos: { isNearTo: () => true },
-      room: { energyAvailable: 400, find: () => [] },
-      structureType: STRUCTURE_SPAWN,
-      spawnCreep: (...args: unknown[]) => {
-        calls.push(args);
-        return 0;
-      },
-    } as StructureSpawn;
-
-    ensureBasicHarvesters(spawn, 1);
+    ensureBasicHarvesters(makeSpawn(calls, 400), 1);
 
     expect(calls).toHaveLength(1);
     expect(calls[0]).toEqual([
@@ -61,22 +66,28 @@ describe('spawn planning', () => {
       spawns: {},
     } as GameGlobal;
 
-    const spawn = {
-      id: 'spawn1',
-      name: 'Spawn1',
-      spawning: null,
-      pos: { isNearTo: () => true },
-      room: { energyAvailable: 200, find: () => [] },
-      structureType: STRUCTURE_SPAWN,
-      spawnCreep: (...args: unknown[]) => {
-        calls.push(args);
-        return 0;
-      },
-    } as StructureSpawn;
-
-    ensureBasicUpgraders(spawn, 1);
+    ensureBasicUpgraders(makeSpawn(calls), 1);
 
     expect(calls).toHaveLength(1);
     expect(calls[0]).toEqual([[WORK, CARRY, MOVE], 'Upgrader456', { memory: { role: 'upgrader' } }]);
+  });
+
+  it('spawns a builder when construction exists after basic harvester coverage', () => {
+    const calls: unknown[] = [];
+    globalThis.Game = {
+      time: 789,
+      creeps: {
+        Harvester1: { memory: { role: 'harvester' } } as Creep,
+        Harvester2: { memory: { role: 'harvester' } } as Creep,
+        Harvester3: { memory: { role: 'harvester' } } as Creep,
+      },
+      spawns: {},
+    } as GameGlobal;
+
+    const site = { id: 'site1', pos: { isNearTo: () => true } } as ConstructionSite;
+    ensureBasicBuilders(makeSpawn(calls, 200, [site]), 1);
+
+    expect(calls).toHaveLength(1);
+    expect(calls[0]).toEqual([[WORK, CARRY, MOVE], 'Builder789', { memory: { role: 'builder' } }]);
   });
 });
