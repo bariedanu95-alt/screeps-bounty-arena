@@ -529,3 +529,20 @@ Actions:
 - landed `0014bcc`
 - closed #96 with credit note
 - awarded 8 points to `rinopatrick` for #79
+
+## 2026-05-14 — Expensive tunnel-road cleanup PR #102
+
+Decision: merge #102 after review and full local verification.
+
+Why:
+
+- live Screeps room had expensive tunnel road construction sites (`progressTotal: 45000`) from naive early-road planning
+- PR disables automatic early-road planning in the live loop and adds cleanup for road construction sites above normal/plain or swamp road costs
+- regression test proves tunnel road sites are removed while normal roads and extension sites are preserved
+- no token/private-server output changes and no broad unrelated rewrite
+- passed current-main dry merge, local check/test/1k/10k/seeded gates, and post-merge verification
+
+Actions:
+
+- marked #102 ready for review
+- merged #102 (`87bfaf5`)
