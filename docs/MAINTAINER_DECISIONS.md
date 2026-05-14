@@ -430,3 +430,21 @@ Actions:
 - added a seeded simulation CI step using the PR head SHA or push SHA as `CI_SEED_BASE`
 - documented seeded simulation reproduction in `docs/SIMULATION.md` and `docs/TESTING_STRATEGY.md`
 - added tests for seeded simulation output and leaderboard link generation
+
+## 2026-05-14 — Seeded-gate PR merges #84–#86
+
+Decision: merge the first clean testing/regression PRs that arrived after the seeded CI update.
+
+Why:
+
+- #84 and #85 are focused bug/regression fixes with tests
+- #86 adds useful no-controller fixtures and edge-case coverage for #73
+- all three passed current-main dry merges plus local check/test/1k/10k/seeded gates
+- GitHub main CI passed after each merge
+
+Actions:
+
+- merged #84 (`e5a40a6`) for corrupted creep Memory cleanup
+- merged #85 (`d56155c`) for empty tower action guard
+- merged #86 (`6725422`) for no-controller room tests/fixtures
+- awarded heavy bug/regression points to #84 and #85, and issue points to #86

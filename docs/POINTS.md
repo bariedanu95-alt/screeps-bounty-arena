@@ -66,6 +66,9 @@ If multiple PRs solve the same issue, the maintainer may award credit to one sel
 | 2026-05-14 | 3 | messiawrq-spec | #57 | #59 | Emergency spawn recovery | Merged clean PR after current-main dry merge and simulation verification. |
 | 2026-05-14 | 3 | Ric-TengYi | #56 | #60 | Early road planner and simulation proof | Merged with admin after dry-merge verification because branch was behind. |
 | 2026-05-14 | 3 | kingzzoov-ctrl | #43 | #55, commit `03a60f8` | RCL 2 extension construction planner | Landed via cleaned maintainer integration due stale conflicts. |
+| 2026-05-14 | 13 | ya-nsh | #71 | #84, commit `e5a40a6` | Harden corrupted creep Memory cleanup | Bug/regression fix with tests; check/test/seeded sim passed. |
+| 2026-05-14 | 13 | ya-nsh | #70 | #85, commit `d56155c` | Skip empty tower actions | Bug/regression fix with tests; check/test/seeded sim passed. |
+| 2026-05-14 | 2 | eggy-e4e | #73 | #86, commit `6725422` | No-controller room edge-case fixtures/tests | First good PR for no-controller tests; check/test/seeded sim passed. |
 
 ## Maintainer notes
 
