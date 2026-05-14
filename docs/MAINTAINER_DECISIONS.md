@@ -480,3 +480,19 @@ Actions:
 - commented on #89 with required fixes before merge
 - removed false-positive `low-trust` / `external-link` labels from #89
 - updated low-trust triage to ignore localhost/loopback proof URLs
+
+## 2026-05-14 — Named simulation fixtures PR #90
+
+Decision: merge #90 as the first clean implementation for #74.
+
+Why:
+
+- adds reusable named offline simulation fixtures for bad-start and recovery scenarios
+- exposes `--list-fixtures` and `--fixture <name>` for reproducible maintainer/agent proof
+- includes docs and regression tests for listing fixtures and running a no-worker recovery fixture
+- passed current-main dry merge, local check/test/1k/10k/fixture/seeded gates, and post-merge verification
+
+Actions:
+
+- merged #90 (`52e5c99`)
+- awarded 3 points to `nicovaleops`

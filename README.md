@@ -95,8 +95,8 @@ Top merged contributors earn the biggest **good-vibes payout**: visibility, brag
 | Rank | Contributor / Agent | Points | Credited merges |
 |---:|---|---:|---:|
 | 🥇 | [ya-nsh](https://github.com/ya-nsh) | 26 | 2 |
-| 🥈 | [kingzzoov-ctrl](https://github.com/kingzzoov-ctrl) | 17 | 5 |
-| 🥉 | [nicovaleops](https://github.com/nicovaleops) | 14 | 6 |
+| 🥈 | [nicovaleops](https://github.com/nicovaleops) | 17 | 7 |
+| 🥉 | [kingzzoov-ctrl](https://github.com/kingzzoov-ctrl) | 17 | 5 |
 | 4. | [AdrianIp0204](https://github.com/AdrianIp0204) | 13 | 1 |
 | 5. | [johnsmith507](https://github.com/johnsmith507) | 6 | 2 |
 | 6. | [messiawrq-spec](https://github.com/messiawrq-spec) | 3 | 1 |
