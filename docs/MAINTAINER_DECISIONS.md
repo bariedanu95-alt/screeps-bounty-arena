@@ -169,6 +169,70 @@ npm test
 node scripts/simulate.mjs --ticks 100 --room-seed template-room --spawn-seed template-spawn --json
 ```
 
+### 2026-05-14 — Merged #52 memory cleanup and closed #48
+
+#52 was merged because it was the smaller, cleaner duplicate for #20 and had direct verification on the current runtime.
+
+#48 was closed as superseded because it solved the same issue but reported local `npm test` was blocked by an older Node runtime.
+
+Verification used:
+
+```bash
+npm run check
+npm test
+node scripts/simulate.mjs --ticks 1000 --json
+```
+
+### 2026-05-14 — Merged #49 tower defense skeleton
+
+Merged because it was focused, isolated tower behavior and passed as a current-main dry merge after the memory changes landed.
+
+Verification used:
+
+```bash
+npm run check
+npm test
+node scripts/simulate.mjs --ticks 1000 --json
+```
+
+### 2026-05-14 — Landed #50 repairer role via cleaned maintainer integration
+
+#50 was valid on its branch but stale against current `main`, conflicting with memory and tower changes. The useful repairer implementation was landed in cleaned commit `632f1ae`; the PR was then closed with credit retained.
+
+Verification used:
+
+```bash
+npm run check
+npm test
+node scripts/simulate.mjs --ticks 1000 --json
+```
+
+### 2026-05-14 — Landed #54 container mining and hauler handoff via cleaned maintainer integration
+
+#54 was useful but stale against current `main`, conflicting with already-merged role/type changes. The miner/hauler behavior was landed in cleaned commit `616de81`; the PR was then closed with credit retained.
+
+Verification used:
+
+```bash
+npm run check
+npm test
+node scripts/simulate.mjs --ticks 1000 --json
+```
+
+### 2026-05-14 — Landed #53 private/test-server workflow via cleaned maintainer integration
+
+Landed because it adds a safe manual handoff path without real account deployment: `.screeps.example.json`, `deploy:test-server`, `server:status`, docs, and tests. Real `.screeps.json` remains ignored, no token is embedded, and upload is intentionally future work.
+
+Verification used:
+
+```bash
+npm run check
+npm test
+node scripts/simulate.mjs --ticks 1000 --json
+node scripts/deploy-test-server.mjs
+node scripts/test-server-status.mjs
+```
+
 ## Future decisions to record
 
 Record decisions for:

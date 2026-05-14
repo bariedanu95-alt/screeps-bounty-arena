@@ -43,6 +43,11 @@ If multiple PRs solve the same issue, the maintainer may award credit to one sel
 | 2026-05-14 | 1 | autochamchikim-pixel | #38 | #42 | PR review workflow checklist | Merged docs-only checklist. |
 | 2026-05-14 | 2 | nicovaleops | #29 | #41 | Reproducible simulation seed fields | Merged seed/config reporting. |
 | 2026-05-14 | 2 | nicovaleops | #35 | #44 | Proof artifact template | Merged template while preserving proof policy; superseded #40. |
+| 2026-05-14 | 2 | nicovaleops | #20 | #52 | Room memory cleanup and migration helpers | Merged clean duplicate; superseded #48. |
+| 2026-05-14 | 3 | kingzzoov-ctrl | #21 | #49 | Tower defense skeleton | Merged after current-main dry merge and simulation verification. |
+| 2026-05-14 | 3 | kingzzoov-ctrl | #22 | #50, commit `632f1ae` | Repairer role with road/wall priorities | Landed via cleaned maintainer integration due stale conflicts. |
+| 2026-05-14 | 3 | kingzzoov-ctrl | #51 | #54, commit `616de81` | Source container mining and hauler handoff | Landed via cleaned maintainer integration due stale conflicts. |
+| 2026-05-14 | 5 | kingzzoov-ctrl | #37 | #53, commit `5db54e7` | Private/test-server deploy workflow | Landed safe credential-free manual handoff path. |
 
 ## Maintainer notes
 

@@ -15,7 +15,12 @@ Detailed ledger: [POINTS.md](POINTS.md)
 | 3 | vulam1808 | #31, `528528a` | Builder role | Superseded by cleaned maintainer implementation. |
 | 2 | nicovaleops | #30 | Markdown simulation reports | Check/test/markdown output passed. |
 | 2 | nicovaleops | #41 | Reproducible simulation seed fields | Seeded JSON/markdown output verified. |
+| 5 | kingzzoov-ctrl | #53, `5db54e7` | Private/test-server deploy workflow | Safe credential-free manual handoff; no real account deploy. |
+| 3 | kingzzoov-ctrl | #49 | Tower defense skeleton | Check/test/1k sim passed on current main. |
+| 3 | kingzzoov-ctrl | #50, `632f1ae` | Repairer role with road/wall priorities | Cleaned maintainer integration; check/test/1k sim passed. |
+| 3 | kingzzoov-ctrl | #54, `616de81` | Source container mining and hauler handoff | Cleaned maintainer integration; check/test/1k sim passed. |
 | 2 | nicovaleops | #44 | Proof artifact template | Template merged; preserved proof policy. |
+| 2 | nicovaleops | #52 | Room memory cleanup and migration helpers | Clean duplicate merged; superseded #48. |
 | 1 | autochamchikim-pixel | #42 | PR review workflow checklist | Docs-only checklist merged. |
 
 ## Rules
