@@ -1,6 +1,12 @@
 # Screeps Bounty Arena
 
-A bounty-friendly **Screeps AI bot** repository designed for humans and coding agents to open focused pull requests.
+A bounty-friendly **Screeps AI bot** repository where humans and coding agents can open focused pull requests against a real, testable colony codebase.
+
+## What is this?
+
+Screeps Bounty Arena is a challenge-based open source project. Contributors improve a Screeps AI bot through small, reviewable PRs with clear acceptance criteria, verification commands, and proof requirements.
+
+**Important:** challenge bounties are **not cash rewards** unless a specific issue explicitly says otherwise. Points are for scope, recognition, triage, and showcase tracking.
 
 This repo is intentionally easy to find when bots search for:
 
@@ -28,29 +34,89 @@ The repo is structured to attract useful PRs rather than vague drive-by changes.
 npm install
 npm run check
 npm test
+npm run simulate:1k
 ```
 
-## Project shape
+## Project structure
 
 ```text
 src/
   main.ts              Screeps loop entrypoint
   roles/               creep role behavior
   planning/            room/economy/planning logic
-  utils/               shared helpers
+  defense/             tower defense behavior
+  memory.ts            memory cleanup and migration helpers
+  types/               lightweight Screeps typings for tests
 .github/
   ISSUE_TEMPLATE/      bounty and agent-friendly issue templates
 ```
 
-## Current starter behavior
+## Current bot behavior
 
-The initial code is deliberately small:
+The bot currently has a small but real Screeps colony core:
 
-- one `harvester` role
-- simple spawn logic
-- basic room energy loop
-- TypeScript types ready for expansion
-- offline simulation commands for 1,000 and 10,000 tick smoke tests
+- harvesters for basic energy income
+- upgraders for controller/RCL progress
+- builders for construction sites
+- repairers with road/container priority and wall/rampart caps
+- miners for source-adjacent container mining
+- haulers for container/dropped-energy pickup and spawn/extension delivery
+- spawn planning for basic role coverage and early economy roles
+- tower defense skeleton for hostile targeting, friendly healing, and repair fallback
+- dead creep memory cleanup and room memory version migration
+
+## Challenge format
+
+1. **Find a challenge** — browse open issues with the `bounty` label.
+2. **Read acceptance criteria** — each issue should list goals, likely files, verification, and non-goals.
+3. **Submit a PR** — keep changes small, tested, and tied to one issue.
+4. **Include proof** — add simulation output, replay logs, video/GIF, or private-server evidence when behavior changes.
+5. **Get reviewed** — maintainers verify, merge, request changes, or close superseded work with a public reason.
+
+### Challenge points
+
+| Points | Scope |
+|---:|---|
+| `points:1` | Small docs, checklist, label, or issue hygiene task |
+| `points:2` | Focused test/docs/proof/template task |
+| `points:3` | Medium implementation with tests or simulation proof |
+| `points:5` | Larger gameplay, RCL milestone, private-server, or proof workflow work |
+
+Points are for fun and triage. They are **not money**.
+
+### Difficulty tiers
+
+| Tier | Description |
+|---|---|
+| `tier:small` | One focused behavior, doc, test, or fixture improvement |
+| `tier:medium` | One complete role/planner feature with tests |
+| `tier:large` | Multi-file gameplay system, simulation gate, or RCL milestone work |
+
+## Documentation
+
+### Challenge system
+
+- [docs/BOUNTY_BOARD.md](docs/BOUNTY_BOARD.md) — bounty issue rules and submission expectations
+- [docs/CHALLENGE_BOARD.md](docs/CHALLENGE_BOARD.md) — challenge format, points, and showcase criteria
+- [docs/POINTS.md](docs/POINTS.md) — point values, award rules, and contributor ledger
+- [docs/LEADERBOARD.md](docs/LEADERBOARD.md) — merged challenge PR showcase
+
+### Proof and verification
+
+- [docs/PROOF_OF_WORK.md](docs/PROOF_OF_WORK.md) — evidence expected for bounty PRs
+- [docs/PROOF_ARTIFACT_TEMPLATE.md](docs/PROOF_ARTIFACT_TEMPLATE.md) — reusable proof block template
+- [docs/SIMULATION.md](docs/SIMULATION.md) — offline simulation commands and reporting
+- [docs/DEPLOYMENT_PLAN.md](docs/DEPLOYMENT_PLAN.md) — staged path from offline proof to private/test server verification
+
+### Contributing and maintaining
+
+- [AGENTS.md](AGENTS.md) — instructions for coding agents opening PRs
+- [CONTRIBUTING.md](CONTRIBUTING.md) — general contribution guidelines
+- [MAINTAINING.md](MAINTAINING.md) — maintainer workflow and merge policy
+- [docs/PR_TRIAGE.md](docs/PR_TRIAGE.md) — triage categories and reusable review responses
+- [docs/MAINTAINER_DECISIONS.md](docs/MAINTAINER_DECISIONS.md) — public decision log
+- [docs/BRANCH_PROTECTION.md](docs/BRANCH_PROTECTION.md) — current branch protection setup
+- [docs/DISCUSSIONS.md](docs/DISCUSSIONS.md) — when to use GitHub Discussions
 
 ## Offline simulation
 
@@ -60,42 +126,10 @@ The repo has a deterministic smoke simulator so PR bots can prove changes over l
 npm run simulate
 npm run simulate:1k
 npm run simulate:10k
+node scripts/simulate.mjs --ticks 1000 --seed demo --room-seed room-a --spawn-seed spawn-a --json
 ```
 
-See [docs/SIMULATION.md](docs/SIMULATION.md) for what it tracks and how agents should report results.
-
-## Challenge bounties
-
-This repo uses **challenge bounties**: clear PR tasks that are fun for humans and coding agents to attempt. They are not cash rewards unless an individual issue explicitly says so.
-
-See:
-
-- [docs/BOUNTY_BOARD.md](docs/BOUNTY_BOARD.md)
-- [docs/CHALLENGE_BOARD.md](docs/CHALLENGE_BOARD.md)
-- [docs/POINTS.md](docs/POINTS.md)
-- [docs/LEADERBOARD.md](docs/LEADERBOARD.md)
-
-Good issues for bots should include:
-
-1. a small goal
-2. likely files
-3. acceptance criteria
-4. verification command
-5. non-goals
-6. suggested challenge points
-7. simulation output when behavior affects economy, roles, or RCL progression
-
-Example:
-
-> Add a `builder` role that builds construction sites after energy sources are serviced. Verify with `npm run check` and a unit test for role selection.
-
-## Suggested GitHub topics
-
-Add these topics after publishing:
-
-```text
-screeps screeps-ai screeps-bot screeps-world screeps-arena ai-agent coding-agent bounty bounties agent-bounties typescript game-ai colony-ai creep-ai automation pull-requests
-```
+Simulation reports include base seed, room seed, spawn seed, spawn config, final RCL, energy capacity, milestone ticks, and failures.
 
 ## Proof of work
 
@@ -136,8 +170,8 @@ Read [AGENTS.md](AGENTS.md) before opening PRs. Keep PRs small, tested, tied to 
 
 Maintainers and contributors should use the repo's safe review notes before reviewing or requesting merges:
 
-- [MAINTAINING.md](MAINTAINING.md) — maintainer workflow, review order, and merge policy.
-- [docs/PR_TRIAGE.md](docs/PR_TRIAGE.md) — triage categories and reusable review responses.
+- [MAINTAINING.md](MAINTAINING.md) — maintainer workflow, review order, and merge policy
+- [docs/PR_TRIAGE.md](docs/PR_TRIAGE.md) — triage categories and reusable review responses
 
 Concise review checklist:
 
@@ -147,9 +181,11 @@ Concise review checklist:
 - Run `npm run check` and `npm test`; add simulation proof when gameplay or economy behavior changes.
 - Decide clearly: merge, request changes, close duplicate, or defer.
 
-## Contributing
+## Suggested GitHub topics
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+```text
+screeps screeps-ai screeps-bot screeps-world screeps-arena ai-agent coding-agent bounty bounties agent-bounties typescript game-ai colony-ai creep-ai automation pull-requests
+```
 
 ## Security
 
