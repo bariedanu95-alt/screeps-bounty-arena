@@ -464,3 +464,19 @@ Actions:
 
 - merged #87 (`3b05066`)
 - awarded heavy bug/regression credit because it includes behavior fixes plus regression tests
+
+## 2026-05-14 — Localhost proof URL triage exception and #89 security review
+
+Decision: keep #89 blocked until credential/probe concerns are fixed, and prevent localhost proof URLs from being mislabeled as external-link submissions.
+
+Why:
+
+- #89 touches private-server status probing and token handling, so accidental credential leakage is high impact
+- automated Copilot/Codex comments identified legitimate issues: URL userinfo redaction, unnecessary Authorization bearer header, heavy branch-code endpoint, and empty failed-probe messages
+- the low-trust workflow mislabeled pasted `http://127.0.0.1:21025` proof output as an external link even though localhost URLs are expected in private-server proof
+
+Actions:
+
+- commented on #89 with required fixes before merge
+- removed false-positive `low-trust` / `external-link` labels from #89
+- updated low-trust triage to ignore localhost/loopback proof URLs

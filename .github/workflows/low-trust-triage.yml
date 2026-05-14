@@ -28,6 +28,7 @@ jobs:
             const urlPattern = /https?:\/\/[^\s)>'"]+/gi;
             const repoUrlPattern = /^https:\/\/github\.com\/waxeye7\/screeps-bounty-arena(?:\/|$)/i;
             const githubAttachmentPattern = /^https:\/\/(?:user-images\.githubusercontent\.com|github\.com\/user-attachments\/assets)\//i;
+            const localProofUrlPattern = /^https?:\/\/(?:localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\])(?::\d+)?(?:\/|$)/i;
             const archivePattern = /\.(?:zip|tar|tgz|tar\.gz|7z|rar|exe|dmg|pkg|appimage|bin)(?:[?#].*)?$/i;
             const blockedHostPattern = /\b(?:gofile\.io|mega\.nz|mediafire\.com|anonfiles\.com|pixeldrain\.com|dropbox\.com|drive\.google\.com|wetransfer\.com|pastebin\.com|gist\.github\.com|file\.io)\b/i;
             const videoHostPattern = /\b(?:youtube\.com|youtu\.be|vimeo\.com|streamable\.com)\b/i;
@@ -60,7 +61,7 @@ jobs:
               const flags = [];
               for (const rawUrl of urls) {
                 const url = rawUrl.replace(/[.,;:]+$/, '');
-                if (repoUrlPattern.test(url) || githubAttachmentPattern.test(url)) continue;
+                if (repoUrlPattern.test(url) || githubAttachmentPattern.test(url) || localProofUrlPattern.test(url)) continue;
                 if (archivePattern.test(url) || blockedHostPattern.test(url)) flags.push('blocked-external-download');
                 else if (videoHostPattern.test(url)) flags.push('external-video-link');
                 else flags.push('external-link');
