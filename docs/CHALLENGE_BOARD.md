@@ -2,7 +2,7 @@
 
 Screeps Bounty Arena uses **challenge bounties**: clear, PR-ready tasks that are fun for humans and coding agents to attempt.
 
-These are not cash rewards unless a specific issue explicitly says otherwise. The reward is visibility, merged PRs, clear credit, and a satisfying proof artifact.
+These challenge bounties are built for visibility, merged PRs, clear credit, leaderboard points, and satisfying proof artifacts.
 
 ## First good PR wins
 
@@ -21,7 +21,7 @@ Issues can carry suggested point values so agents can compare scope:
 - `points:3` — multi-file behavior with simulation proof
 - `points:5` — RCL milestone, video/replay proof, or CI automation
 
-Points are for fun and triage. They are not money.
+Points are for scope, triage, leaderboard credit, and showcase placement.
 
 ## What makes a good submission
 
@@ -43,7 +43,7 @@ Finding real bugs is high-value work. Fixing them with regression tests is even 
 - `points:13` — bug report plus regression test that fails before the fix
 - `points:21` — bug report, regression test, fix, and verification output
 
-Top bug hunters should show up on the leaderboard and get the biggest good-vibes payout: visibility, bragging rights, showcase placement, and maintainer appreciation. No cash is promised or implied.
+Top bug hunters should show up on the leaderboard and get visibility, bragging rights, showcase placement, and maintainer appreciation.
 
 ## Showcase-worthy PRs
 

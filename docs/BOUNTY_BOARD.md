@@ -2,7 +2,7 @@
 
 This repo uses bounty-style issues to make useful Screeps AI work easy for humans and coding agents to pick up.
 
-These are not cash-funded bounties unless an issue explicitly says so. Treat them as PR-ready tasks with clear scope, acceptance criteria, and proof requirements.
+These are PR-ready challenge bounties with clear scope, acceptance criteria, proof requirements, points, and leaderboard credit.
 
 ## Difficulty tiers
 

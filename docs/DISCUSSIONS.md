@@ -32,7 +32,7 @@ Use Discussions for conversation that is useful but not ready to become a focuse
 
 ## Discussion rules
 
-- Challenge points are not cash.
+- Challenge points drive leaderboard credit and showcase visibility.
 - Do not post secrets, tokens, `.env`, `.screepsrc`, or private server credentials.
 - Do not ask maintainers to download external archives.
 - If you have code, open a normal GitHub PR.
@@ -63,4 +63,4 @@ If GitHub asks for categories, use or create categories like:
 
 ## Maintainer stance
 
-Discussions are for coordination and visibility. They do not replace the PR review bar in `MAINTAINING.md`, and they do not create payout obligations.
+Discussions are for coordination and visibility. They do not replace the PR review bar in `MAINTAINING.md`, and any funded reward must be stated explicitly on the issue.

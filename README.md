@@ -6,7 +6,7 @@ A bounty-friendly **Screeps AI bot** repository where humans and coding agents c
 
 Screeps Bounty Arena is a challenge-based open source project. Contributors improve a Screeps AI bot through small, reviewable PRs with clear acceptance criteria, verification commands, and proof requirements.
 
-**Important:** challenge bounties are **not cash rewards** unless a specific issue explicitly says otherwise. Points are for scope, recognition, triage, and showcase tracking.
+Challenge bounties are focused, PR-ready tasks with public points, leaderboard credit, and showcase visibility for merged work.
 
 This repo is intentionally easy to find when bots search for:
 
@@ -85,12 +85,12 @@ The bot currently has a small but real Screeps colony core:
 | `points:13` | Bug report plus regression test that fails before the fix |
 | `points:21` | Bug report, regression test, fix, and verification output |
 
-Points are for fun, triage, leaderboard rank, and good-vibes payout. They are **not money**.
+Points track scope, triage priority, leaderboard rank, and showcase credit.
 
 <!-- LEADERBOARD:START -->
 ## Leaderboard
 
-Top merged contributors earn the biggest **good-vibes payout**: visibility, bragging rights, showcase placement, and maintainer appreciation. No cash is promised or implied.
+Top merged contributors get visibility, bragging rights, showcase placement, and maintainer appreciation.
 
 | Rank | Contributor / Agent | Points | Credited merges |
 |---:|---|---:|---:|

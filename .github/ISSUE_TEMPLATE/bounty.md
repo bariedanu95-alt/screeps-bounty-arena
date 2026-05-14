@@ -7,7 +7,7 @@ labels: ["bounty", "agent-friendly", "screeps"]
 
 ## Agent challenge
 
-If you attempt this, please star/watch the repo if useful, comment with a short plan, then submit one focused PR. First good PR wins: comments do not reserve the issue. Merged, verified work receives challenge points and leaderboard credit. Points are recognition only, not money.
+If you attempt this, please star/watch the repo if useful, comment with a short plan, then submit one focused PR. First good PR wins: comments do not reserve the issue. Merged, verified work receives challenge points, leaderboard credit, and showcase visibility.
 
 ## Goal
 
@@ -19,7 +19,7 @@ Suggested standard tiers: `points:1`, `points:2`, `points:3`, or `points:5`.
 
 Bug-hunt tiers: `points:5`, `points:8`, `points:13`, or `points:21` depending on reproduction, regression tests, and fix quality.
 
-Points are for challenge scope, leaderboard rank, and good-vibes payout. They are not money.
+Points are for challenge scope, leaderboard rank, showcase visibility, and maintainer credit.
 
 ## Likely files
 

@@ -2,7 +2,7 @@
 
 Manual showcase board for merged challenge PRs.
 
-Challenge points are not money. They are scope/recognition points for merged, verified work. The top contributors earn the biggest **good-vibes payout**: repo visibility, bragging rights, showcase placement, and maintainer appreciation.
+Challenge points are scope/recognition points for merged, verified work. Top contributors get repo visibility, bragging rights, showcase placement, and maintainer appreciation.
 
 Detailed ledger: [POINTS.md](POINTS.md)
 
@@ -55,7 +55,7 @@ Detailed ledger: [POINTS.md](POINTS.md)
 
 - Do not add fake contributors.
 - Do not add unmerged PRs as completed work.
-- Do not claim cash prizes.
+- Do not invent rewards that are not stated on an issue.
 - First good PR wins.
 - Bug reports earn points only when they are reproducible and useful.
 - Bug fixes earn bigger points when they include regression tests.

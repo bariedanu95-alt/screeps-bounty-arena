@@ -8,4 +8,4 @@ contact_links:
     about: Edge cases, gates, and regression expectations for agent PRs.
   - name: Leaderboard and points
     url: https://github.com/waxeye7/screeps-bounty-arena/blob/main/docs/POINTS.md
-    about: Non-cash challenge points, bug-hunt tiers, and leaderboard rules.
+    about: Challenge points, bug-hunt tiers, and leaderboard rules.

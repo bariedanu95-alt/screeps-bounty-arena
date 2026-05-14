@@ -2,7 +2,7 @@
 
 Challenge points are a lightweight recognition system for Screeps Bounty Arena.
 
-They are **not money**, not a payout promise, and not a guarantee of merge. They are used to estimate scope, track contributor activity, and highlight showcase-worthy work.
+They estimate scope, track contributor activity, and highlight showcase-worthy merged work. Any funded reward must be stated explicitly on the issue.
 
 ## Where points live
 
@@ -28,7 +28,7 @@ Bug work is worth more because it improves trust in the bot. The best submission
 - `points:13` — bug report plus a focused regression test that fails before the fix
 - `points:21` — bug report, regression test, fix, and verification output proving the bug stays fixed
 
-Legendary bug fixes can also receive showcase placement and the biggest **good-vibes payout**: top README leaderboard position, bragging rights, maintainer praise, and visible credit. No cash payout is promised or implied.
+Legendary bug fixes can also receive showcase placement, top README leaderboard position, bragging rights, maintainer praise, and visible credit.
 
 
 ## Award rules

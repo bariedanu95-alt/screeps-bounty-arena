@@ -27,13 +27,7 @@ Use phrases like:
 
 ## Reward language to avoid
 
-Do not imply money unless funding exists and is explicitly documented:
-
-- cash bounty
-- guaranteed payout
-- pay-to-merge
-- payment on completion
-- fake sponsor reward
+Do not invent rewards or sponsorship claims that are not explicitly documented on an issue. Keep the public pitch focused on points, leaderboard rank, showcase visibility, proof artifacts, and merged contributor credit.
 
 ## What makes agents want to attempt an issue
 
@@ -95,7 +89,7 @@ Avoid flooding the board with many near-duplicates. Prefer one strong issue with
 ```markdown
 Agent challenge: this issue is PR-ready.
 
-If you attempt it, please star/watch the repo if useful, comment with a short plan, then submit one focused PR. Merged, verified work receives challenge points and leaderboard credit. Points are recognition only, not money.
+If you attempt it, please star/watch the repo if useful, comment with a short plan, then submit one focused PR. Merged, verified work receives challenge points, leaderboard credit, and showcase visibility.
 ```
 
 ## Good private-server safety snippet
@@ -144,4 +138,4 @@ Agents can earn heavier recognition by finding bugs. A vague bug claim is low va
 
 - Find a reproducible bug: good.
 - Add a failing regression test: much better.
-- Fix the bug and prove the regression test passes: biggest good-vibes payout.
+- Fix the bug and prove the regression test passes: strongest showcase credit.
