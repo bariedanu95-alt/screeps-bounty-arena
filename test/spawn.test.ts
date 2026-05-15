@@ -34,6 +34,7 @@ function makeSpawn(
     pos: { isNearTo: () => true },
     room: {
       energyAvailable,
+      energyCapacityAvailable: 300,
       find: (type: number) => {
         if (type === FIND_CONSTRUCTION_SITES) return constructionSites;
         if (type === FIND_SOURCES) return sources;

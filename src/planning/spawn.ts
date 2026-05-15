@@ -43,9 +43,21 @@ export function ensureBasicHarvesters(spawn: StructureSpawn, desiredCount = 3): 
   trySpawnWorker(spawn, 'harvester', `Harvester${Game.time}`);
 }
 
-export function ensureBasicUpgraders(spawn: StructureSpawn, desiredCount = 1, requiredHarvesters = 3): void {
+export function ensureBasicUpgraders(spawn: StructureSpawn, desiredCount?: number, requiredHarvesters = 3): void {
   const harvesters = Object.values(Game.creeps).filter((creep) => creep.memory.role === 'harvester');
   if (harvesters.length < requiredHarvesters || spawn.spawning) return;
+
+  if (desiredCount === undefined) {
+    desiredCount = 1;
+    const capacity = spawn.room.energyCapacityAvailable;
+    if (capacity > 300 && spawn.room.energyAvailable >= capacity * 0.8) {
+      desiredCount += 1;
+    }
+    const constructionSites = spawn.room.find(FIND_CONSTRUCTION_SITES);
+    if (constructionSites.length === 0 && spawn.room.energyAvailable >= 300) {
+      desiredCount += 1;
+    }
+  }
 
   const upgraders = Object.values(Game.creeps).filter((creep) => creep.memory.role === 'upgrader');
   if (upgraders.length >= desiredCount) return;
@@ -53,12 +65,16 @@ export function ensureBasicUpgraders(spawn: StructureSpawn, desiredCount = 1, re
   trySpawnWorker(spawn, 'upgrader', `Upgrader${Game.time}`);
 }
 
-export function ensureBasicBuilders(spawn: StructureSpawn, desiredCount = 1, requiredHarvesters = 3): void {
+export function ensureBasicBuilders(spawn: StructureSpawn, desiredCount?: number, requiredHarvesters = 3): void {
   const constructionSites = spawn.room.find(FIND_CONSTRUCTION_SITES);
   if (constructionSites.length === 0 || spawn.spawning) return;
 
   const harvesters = Object.values(Game.creeps).filter((creep) => creep.memory.role === 'harvester');
   if (harvesters.length < requiredHarvesters) return;
+
+  if (desiredCount === undefined) {
+    desiredCount = Math.min(3, Math.max(1, Math.ceil(constructionSites.length / 5)));
+  }
 
   const builders = Object.values(Game.creeps).filter((creep) => creep.memory.role === 'builder');
   if (builders.length >= desiredCount) return;
