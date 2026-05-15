@@ -120,7 +120,7 @@ export function ensureContainerMiningEconomy(
 }
 
 function countRole(role: CreepRole): number {
-  return Object.values(Game.creeps).filter((creep) => creep.memory.role === role).length;
+  return Object.values(Game.creeps).filter((creep) => creep.memory?.role === role).length;
 }
 
 const lastSpawnedRole = new Map<string, CreepRole>();
@@ -192,8 +192,8 @@ export function ensureEmergencyRecovery(spawn: StructureSpawn): boolean {
   if (spawn.spawning) return true; // Handled
 
   const creeps = Object.values(Game.creeps);
-  const harvesters = creeps.filter(c => c.memory.role === 'harvester');
-  const miners = creeps.filter(c => c.memory.role === 'miner');
+  const harvesters = creeps.filter(c => c.memory?.role === 'harvester');
+  const miners = creeps.filter(c => c.memory?.role === 'miner');
   
   // Emergency condition: 0 harvesters and 0 miners (no energy income)
   if (harvesters.length === 0 && miners.length === 0) {
