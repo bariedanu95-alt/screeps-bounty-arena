@@ -123,18 +123,36 @@ function countRole(role: CreepRole): number {
   return Object.values(Game.creeps).filter((creep) => creep.memory.role === role).length;
 }
 
+const lastSpawnedRole = new Map<string, CreepRole>();
+const starvationYields = new Map<string, number>();
+
+export function resetSpawnPlannerForTests(): void {
+  failedSpawnAttempts.clear();
+  lastSpawnedRole.clear();
+  starvationYields.clear();
+}
+
 function trySpawnWorker(spawn: StructureSpawn, role: CreepRole, name: string): boolean {
   if (spawn.spawning || isWorkerSpawnBlockedThisTick(spawn) || !hasEnoughEnergyForWorker(spawn)) return false;
+
+  const spawnKey = spawnAttemptKey(spawn);
+
+  // Anti-starvation: yield one tick if this role was the last one spawned
+  if (lastSpawnedRole.get(spawnKey) === role && starvationYields.get(spawnKey) !== Game.time - 1) {
+    starvationYields.set(spawnKey, Game.time);
+    return false;
+  }
 
   const result = spawn.spawnCreep(buildWorkerBody(spawn.room.energyAvailable ?? MIN_WORKER_ENERGY), name, {
     memory: { role },
   });
 
   if (result !== 0) {
-    failedSpawnAttempts.set(spawnAttemptKey(spawn), Game.time);
+    failedSpawnAttempts.set(spawnKey, Game.time);
     return false;
   }
 
+  lastSpawnedRole.set(spawnKey, role);
   return true;
 }
 
