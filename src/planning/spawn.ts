@@ -49,12 +49,13 @@ export function ensureBasicUpgraders(spawn: StructureSpawn, desiredCount?: numbe
 
   if (desiredCount === undefined) {
     desiredCount = 1;
-    const capacity = spawn.room.energyCapacityAvailable;
-    if (capacity > 300 && spawn.room.energyAvailable >= capacity * 0.8) {
+    const capacity = spawn.room.energyCapacityAvailable ?? 300;
+    const energy = spawn.room.energyAvailable ?? 300;
+    if (capacity > 300 && energy >= capacity * 0.8) {
       desiredCount += 1;
     }
     const constructionSites = spawn.room.find(FIND_CONSTRUCTION_SITES);
-    if (constructionSites.length === 0 && spawn.room.energyAvailable >= 300) {
+    if (constructionSites.length === 0 && energy >= 300) {
       desiredCount += 1;
     }
   }
